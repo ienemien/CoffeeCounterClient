@@ -1,0 +1,8 @@
+<h3>Your Favorite Coffee</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let coffeeDetail of coffee" (click)="gotoDetail(coffeeDetail)" class="col-1-4">
+    <div class="module coffee">
+      <h4>{{coffeeDetail.name}}</h4>
+    </div>
+  </div>
+</div>
