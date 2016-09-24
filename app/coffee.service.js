@@ -14,13 +14,14 @@ require('rxjs/add/operator/toPromise');
 var CoffeeService = (function () {
     function CoffeeService(http) {
         this.http = http;
-        this.coffeeUrl = 'app/coffee'; // URL to web api
+        this.coffeeUrl = 'http://localhost:8080/coffee'; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     CoffeeService.prototype.getCoffee = function () {
+        console.log("Getting coffee");
         return this.http.get(this.coffeeUrl)
             .toPromise()
-            .then(function (response) { return response.json().data; })
+            .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     CoffeeService.prototype.getCoffeeDetail = function (id) {

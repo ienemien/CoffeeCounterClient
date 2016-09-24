@@ -8,16 +8,17 @@ import { Coffee } from './coffee';
 
 @Injectable()
 export class CoffeeService {
-	private coffeeUrl = 'app/coffee';  // URL to web api
+	private coffeeUrl = 'http://localhost:8080/coffee';  // URL to web api
 	
 	private headers = new Headers({'Content-Type': 'application/json'});
 	
 	constructor(private http: Http) { }
   
 	getCoffee(): Promise<Coffee[]> {
+		console.log("Getting coffee");
 		return this.http.get(this.coffeeUrl)
 				   .toPromise()
-				   .then(response => response.json().data as Coffee[])
+				   .then(response => response.json() as Coffee[])
 				   .catch(this.handleError);
 			   }
 	

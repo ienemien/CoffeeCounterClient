@@ -22,6 +22,7 @@ var CoffeeComponent = (function () {
     CoffeeComponent.prototype.getCoffee = function () {
         var _this = this;
         this.coffeeService.getCoffee().then(function (coffee) { return _this.coffee = coffee; });
+        console.log("Coffee: " + this.coffee);
     };
     CoffeeComponent.prototype.onSelect = function (coffee) {
         this.selectedCoffee = coffee;
