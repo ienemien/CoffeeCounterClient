@@ -1,9 +1,6 @@
 <h2>My Coffee</h2>
 <div>
-  <label>Coffee name:</label> <input #coffeeName />
-  <button (click)="add(coffeeName.value); coffeeName.value=''">
-    Add
-  </button>
+    <button (click)="addCoffee()">Add new coffee</button>
 </div>
 <ul class="coffee">
 	<li *ngFor="let coffeeDetail of coffee"

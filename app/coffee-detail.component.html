@@ -1,11 +1,25 @@
-<div *ngIf="coffee">
-  <h2>{{coffee.name}} details!</h2>
-  <div>
-    <label>id: </label>{{coffee.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="coffee.name" placeholder="name" />
-  </div>
-  <button (click)="save()">Save</button>
-  <button (click)="goBack()">Back</button>
+<div class="container">
+  <h1>Add coffee</h1>
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" [(ngModel)]="coffee.name" name="name" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select class="form-control" id="type" required>
+        <option *ngFor="let type of types" [value]="type" [(ngModel)]="coffee.type" name="type">{{type}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="number" class="form-control" [(ngModel)]="coffee.amount" name="amount" id="amount" required>
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating</label>
+      <input type="number" class="form-control" [(ngModel)]="coffee.rating" name="rating" id="rating" required>
+    </div>
+      <button type="submit" (click)="save()">Save</button>
+      <button type="button" (click)="goBack()">Cancel</button>
+  </form>
 </div>

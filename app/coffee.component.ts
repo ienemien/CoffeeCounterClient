@@ -36,17 +36,11 @@ export class CoffeeComponent {
 	gotoDetail(): void {
 		this.router.navigate(['/detail', this.selectedCoffee.id]);
 	}
-	
-	add(name: string): void {
-	  name = name.trim();
-	  if (!name) { return; }
-	  this.coffeeService.create(name)
-		.then(coffee => {
-		  this.coffee.push(coffee);
-		  this.selectedCoffee = null;
-		});
-	}
-	
+
+    addCoffee(): void {
+        this.router.navigate(['/new']);
+    }
+
 	delete(coffee: Coffee): void {
 	  this.coffeeService
 		  .delete(coffee.id)
