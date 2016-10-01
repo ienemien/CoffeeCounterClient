@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/coffee">{{title}}</a>
+            <a class="btn btn-default navbar-btn" routerLink="/coffee" routerLinkActive="active">Coffee</a>
+            <a class="btn btn-default navbar-btn" routerLink="/new" routerLinkActive="active">New Coffee</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
