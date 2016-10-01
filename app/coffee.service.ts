@@ -37,11 +37,10 @@ export class CoffeeService {
     }
 
     update(coffee:Coffee):Promise<Coffee> {
-        const url = `${this.coffeeUrl}/${coffee.id}`;
         return this.http
-            .put(url, JSON.stringify(coffee), {headers: this.headers})
+            .put(this.coffeeUrl, JSON.stringify(coffee), {headers: this.headers})
             .toPromise()
-            .then(() => coffee)
+            .then(res => res.json())
             .catch(this.handleError);
     }
 

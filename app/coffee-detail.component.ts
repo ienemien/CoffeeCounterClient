@@ -30,7 +30,7 @@ export class CoffeeDetailComponent implements OnInit {
                         console.log(this.coffee);
                     });
             } else {
-                this.coffee = new Coffee(null, "name", "Espresso", 0, 0);
+                this.coffee = new Coffee(null, "", "Espresso", 0, 0);
             }
         });
     }
