@@ -1,10 +1,10 @@
 <h2>My Coffee</h2>
-<ul class="coffee">
+<ul>
 	<li *ngFor="let coffeeDetail of coffee"
 	[class.selected]="coffeeDetail === selectedCoffee"
 	(click)="onSelect(coffeeDetail)">
-	  <span class="badge">{{coffeeDetail.id}}</span> {{coffeeDetail.name}}
-	  	<button class="delete" (click)="delete(coffeeDetail); $event.stopPropagation()">x</button>
+	  <span class="badge">{{coffeeDetail.amount}}</span> {{coffeeDetail.name}}
+	  	<button (click)="delete(coffeeDetail); $event.stopPropagation()">x</button>
 	</li>
 </ul>
 <div *ngIf="selectedCoffee">

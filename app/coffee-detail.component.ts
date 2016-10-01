@@ -11,13 +11,11 @@ import { Coffee } from './coffee';
 })
 export class CoffeeDetailComponent implements OnInit {
 
-    coffee: Coffee;
-
+    coffee:Coffee;
     types = ['Espresso', 'Lungo', 'Ristretto', 'With milk'];
 
     constructor(private coffeeService:CoffeeService,
                 private route:ActivatedRoute) {
-
     }
 
     ngOnInit():void {
