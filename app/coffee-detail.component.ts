@@ -21,11 +21,11 @@ export class CoffeeDetailComponent implements OnInit {
     ngOnInit():void {
         this.route.params.forEach((params:Params) => {
             let id = +params['id'];
+
             if (id) {
                 this.coffeeService.getCoffeeDetail(id)
                     .then(coffeeDetail => {
                         this.coffee = coffeeDetail;
-                        console.log(this.coffee);
                     });
             } else {
                 this.coffee = new Coffee(null, "", "Espresso", 0, 0);
@@ -35,6 +35,7 @@ export class CoffeeDetailComponent implements OnInit {
 
     save():void {
         let newCoffee = this.coffee;
+
         if (this.coffee.id != null) {
             this.coffeeService.update(newCoffee)
                 .then(this.goBack);

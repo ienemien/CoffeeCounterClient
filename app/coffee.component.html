@@ -1,15 +1,30 @@
 <h2>My Coffee</h2>
-<ul>
-	<li *ngFor="let coffeeDetail of coffee"
-	[class.selected]="coffeeDetail === selectedCoffee"
-	(click)="onSelect(coffeeDetail)">
-	  <span class="badge">{{coffeeDetail.amount}}</span> {{coffeeDetail.name}}
-	  	<button (click)="delete(coffeeDetail); $event.stopPropagation()">x</button>
-	</li>
-</ul>
-<div *ngIf="selectedCoffee">
-  <h2>
-	{{selectedCoffee.name | uppercase}} is my favorite coffee
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
+
+<div class="row">
+    <div class="col-xs-12" *ngFor="let coffeeDetail of coffee">
+        <div class="btn-group btn-group-lg">
+
+            <button [ngClass]="{'btn-success': coffeeDetail === selectedCoffee }" [class.selected]=""
+                    class="btn btn-default" (click)="onSelect(coffeeDetail)" type="button">
+                <span class="badge">{{coffeeDetail.amount}}</span> {{coffeeDetail.name}}
+            </button>
+
+            <button class="btn btn-default btn-danger" (click)="delete(coffeeDetail); $event.stopPropagation()">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-xs-12" *ngIf="selectedCoffee">
+        <h2>
+            {{selectedCoffee.name | uppercase}} is my favorite coffee
+        </h2>
+        <button class="btn btn-default" (click)="gotoDetail()">
+            View Details <span class="glyphicon glyphicon-menu-right"></span>
+        </button>
+    </div>
+</div>
+
+

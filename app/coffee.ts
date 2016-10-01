@@ -6,7 +6,7 @@ export class Coffee {
 	rating: number;
 
 	constructor(
-        id: int,
+        id: number,
 		name: string,
 		type: string,
 		amount: number,
