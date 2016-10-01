@@ -3,17 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CoffeeComponent }      from './coffee.component';
 import { CoffeeDetailComponent }      from './coffee-detail.component';
-import { DashboardComponent }      from './dashboard.component';
 
 const appRoutes:Routes = [
     {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/coffee',
         pathMatch: 'full'
-    },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
     },
     {
         path: 'detail/:id',

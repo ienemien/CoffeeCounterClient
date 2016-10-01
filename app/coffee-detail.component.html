@@ -1,25 +1,25 @@
-<div class="container">
+<div class="container" *ngIf="coffee">
   <h1>Add coffee</h1>
-  <form>
+  <form (ngSubmit)="save()" #coffeeForm="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" [(ngModel)]="coffee.name" name="name" id="name" required>
+      <input type="text" class="form-control" [(ngModel)]="coffee.name" name="name" #name="ngModel" id="name" required>
     </div>
     <div class="form-group">
       <label for="type">Type</label>
-      <select class="form-control" id="type" required>
-        <option *ngFor="let type of types" [value]="type" [(ngModel)]="coffee.type" name="type">{{type}}</option>
+      <select class="form-control" id="type" [(ngModel)]="coffee.type" name="type" #type="ngModel" required>
+        <option *ngFor="let type of types" [value]="type" >{{type}}</option>
       </select>
     </div>
     <div class="form-group">
       <label for="amount">Amount</label>
-      <input type="number" class="form-control" [(ngModel)]="coffee.amount" name="amount" id="amount" required>
+      <input type="number" class="form-control" [(ngModel)]="coffee.amount" name="amount" id="amount" #amount="ngModel" required>
     </div>
     <div class="form-group">
       <label for="rating">Rating</label>
-      <input type="number" class="form-control" [(ngModel)]="coffee.rating" name="rating" id="rating" required>
+      <input type="number" class="form-control" [(ngModel)]="coffee.rating" name="rating" id="rating" #rating="ngModel" required>
     </div>
-      <button type="submit" (click)="save()">Save</button>
+      <button type="submit">Save</button>
       <button type="button" (click)="goBack()">Cancel</button>
   </form>
 </div>

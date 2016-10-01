@@ -16,7 +16,6 @@ export class CoffeeService {
     }
 
     getCoffee():Promise<Coffee[]> {
-        console.log("Getting coffee");
         return this.http.get(this.coffeeUrl)
             .toPromise()
             .then(response => response.json() as Coffee[])
@@ -28,7 +27,12 @@ export class CoffeeService {
 
         return this.http.get(url)
             .toPromise()
-            .then(response => response.json() as Coffee)
+            .then(response => {
+                let data = response.json();
+                let coffeeDetail = new Coffee(data.id, data.name, data.type, data.amount, data.rating);
+                console.log(coffeeDetail);
+                return coffeeDetail;
+            })
             .catch(this.handleError);
     }
 
@@ -43,9 +47,9 @@ export class CoffeeService {
 
     create(coffee:Coffee):Promise<Coffee> {
         return this.http
-            .post(this.coffeeUrl, JSON.stringify({coffee}), {headers: this.headers})
+            .post(this.coffeeUrl, JSON.stringify(coffee), {headers: this.headers})
             .toPromise()
-            .then(res => res.json().data)
+            .then(res => res.json())
             .catch(this.handleError);
     }
 

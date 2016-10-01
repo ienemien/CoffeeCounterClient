@@ -1,7 +1,4 @@
 <h2>My Coffee</h2>
-<div>
-    <button (click)="addCoffee()">Add new coffee</button>
-</div>
 <ul class="coffee">
 	<li *ngFor="let coffeeDetail of coffee"
 	[class.selected]="coffeeDetail === selectedCoffee"

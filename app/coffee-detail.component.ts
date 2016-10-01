@@ -11,13 +11,13 @@ import { Coffee } from './coffee';
 })
 export class CoffeeDetailComponent implements OnInit {
 
-    @Input()
-    coffee:Coffee;
+    coffee: Coffee;
 
     types = ['Espresso', 'Lungo', 'Ristretto', 'With milk'];
 
     constructor(private coffeeService:CoffeeService,
                 private route:ActivatedRoute) {
+
     }
 
     ngOnInit():void {
@@ -25,19 +25,23 @@ export class CoffeeDetailComponent implements OnInit {
             let id = +params['id'];
             if (id) {
                 this.coffeeService.getCoffeeDetail(id)
-                    .then(coffee => this.coffee = coffee);
+                    .then(coffeeDetail => {
+                        this.coffee = coffeeDetail;
+                        console.log(this.coffee);
+                    });
             } else {
-                this.coffee = new Coffee();
+                this.coffee = new Coffee(null, "name", "Espresso", 0, 0);
             }
         });
     }
 
     save():void {
+        let newCoffee = this.coffee;
         if (this.coffee.id != null) {
-            this.coffeeService.update(this.coffee)
+            this.coffeeService.update(newCoffee)
                 .then(this.goBack);
         } else {
-            this.coffeeService.create(this.coffee)
+            this.coffeeService.create(newCoffee)
                 .then(this.goBack);
         }
     }

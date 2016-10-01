@@ -25,8 +25,6 @@ export class CoffeeComponent {
 	getCoffee(): void {
 		this.coffeeService.getCoffee().then(
 			coffee => this.coffee = coffee);
-
-		console.log("Coffee: " + this.coffee);
 	}
 	
 	onSelect(coffee: Coffee): void {

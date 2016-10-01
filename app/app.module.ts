@@ -7,7 +7,6 @@ import { HttpModule }    from '@angular/http';
 import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
 
 import { AppComponent }  from './app.component';
-import { DashboardComponent }  from './dashboard.component';
 import { CoffeeComponent }  from './coffee.component';
 import { CoffeeDetailComponent }  from './coffee-detail.component';
 import { CoffeeService }  from './coffee.service';
@@ -24,7 +23,6 @@ import { routing } from './app.routing';
   ],
 	declarations: [ 
 		AppComponent,
-		DashboardComponent,
 		CoffeeComponent,
 		CoffeeDetailComponent
 	],
