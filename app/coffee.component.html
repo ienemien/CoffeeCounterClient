@@ -4,9 +4,9 @@
     <div class="col-xs-12" *ngFor="let coffeeDetail of coffee">
         <div class="btn-group btn-group-lg">
 
-            <button [ngClass]="{'btn-success': coffeeDetail === selectedCoffee }" [class.selected]=""
+            <button [ngClass]="{'btn-success': coffeeDetail === selectedCoffee }"
                     class="btn btn-default" (click)="onSelect(coffeeDetail)" type="button">
-                <span class="badge">{{coffeeDetail.amount}}</span> {{coffeeDetail.name}}
+                <span class="badge">{{coffeeDetail.amount}}</span> {{coffeeDetail.name}} <star-rating (ratingUpdated)="saveRating($event, coffeeDetail)" [coffeeRating]="coffeeDetail.rating"></star-rating>
             </button>
 
             <button class="btn btn-default btn-danger" (click)="delete(coffeeDetail); $event.stopPropagation()">

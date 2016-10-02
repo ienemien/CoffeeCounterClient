@@ -6,6 +6,7 @@ import { HttpModule }    from '@angular/http';
 import { AppComponent }  from './app.component';
 import { CoffeeComponent }  from './coffee.component';
 import { CoffeeDetailComponent }  from './coffee-detail.component';
+import { StarRatingComponent }  from './star-rating.component';
 import { CoffeeService }  from './coffee.service';
 
 import { routing } from './app.routing';
@@ -21,7 +22,8 @@ import { routing } from './app.routing';
 	declarations: [ 
 		AppComponent,
 		CoffeeComponent,
-		CoffeeDetailComponent
+		CoffeeDetailComponent,
+		StarRatingComponent
 	],
 	providers: [
 		CoffeeService

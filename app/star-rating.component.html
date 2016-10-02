@@ -1,0 +1,6 @@
+
+    <span (click)="setRating(1); $event.stopPropagation()" [ngClass]="{'glyphicon-star-empty': coffeeRating < 1, 'glyphicon-star': coffeeRating >= 1}" class="glyphicon"></span>
+    <span (click)="setRating(2); $event.stopPropagation()" [ngClass]="{'glyphicon-star-empty': coffeeRating < 2, 'glyphicon-star': coffeeRating >= 2}" class="glyphicon"></span>
+    <span (click)="setRating(3); $event.stopPropagation()" [ngClass]="{'glyphicon-star-empty': coffeeRating < 3, 'glyphicon-star': coffeeRating >= 3}" class="glyphicon"></span>
+    <span (click)="setRating(4); $event.stopPropagation()" [ngClass]="{'glyphicon-star-empty': coffeeRating < 4, 'glyphicon-star': coffeeRating >= 4}" class="glyphicon"></span>
+    <span (click)="setRating(5); $event.stopPropagation()" [ngClass]="{'glyphicon-star-empty': coffeeRating < 5, 'glyphicon-star': coffeeRating >= 5}" class="glyphicon"></span>

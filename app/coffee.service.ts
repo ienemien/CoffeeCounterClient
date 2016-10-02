@@ -29,14 +29,13 @@ export class CoffeeService {
             .toPromise()
             .then(response => {
                 let data = response.json();
-                let coffeeDetail = new Coffee(data.id, data.name, data.type, data.amount, data.rating);
-                console.log(coffeeDetail);
-                return coffeeDetail;
+                return new Coffee(data.id, data.name, data.type, data.amount, data.rating);
             })
             .catch(this.handleError);
     }
 
     update(coffee:Coffee):Promise<Coffee> {
+        console.log(coffee);
         return this.http
             .put(this.coffeeUrl, JSON.stringify(coffee), {headers: this.headers})
             .toPromise()

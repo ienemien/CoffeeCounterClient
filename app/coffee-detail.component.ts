@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { CoffeeService } from './coffee.service';
 import { Coffee } from './coffee';
 
 @Component ({
-    selector: 'my-coffee-detail',
+    selector: 'coffee-detail',
     templateUrl: 'app/coffee-detail.component.html',
     styleUrls: ['app/coffee-detail.component.css']
 })
