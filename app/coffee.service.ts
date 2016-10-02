@@ -35,7 +35,6 @@ export class CoffeeService {
     }
 
     update(coffee:Coffee):Promise<Coffee> {
-        console.log(coffee);
         return this.http
             .put(this.coffeeUrl, JSON.stringify(coffee), {headers: this.headers})
             .toPromise()

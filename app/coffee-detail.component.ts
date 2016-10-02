@@ -11,7 +11,7 @@ import { Coffee } from './coffee';
 })
 export class CoffeeDetailComponent implements OnInit {
 
-    coffee:Coffee;
+    coffeeDetail:Coffee;
     types = ['Espresso', 'Lungo', 'Ristretto', 'With milk'];
 
     constructor(private coffeeService:CoffeeService,
@@ -25,24 +25,28 @@ export class CoffeeDetailComponent implements OnInit {
             if (id) {
                 this.coffeeService.getCoffeeDetail(id)
                     .then(coffeeDetail => {
-                        this.coffee = coffeeDetail;
+                        this.coffeeDetail = coffeeDetail;
                     });
             } else {
-                this.coffee = new Coffee(null, "", "Espresso", 0, 0);
+                this.coffeeDetail = new Coffee(null, "", "Espresso", 0, 0);
             }
         });
     }
 
     save():void {
-        let newCoffee = this.coffee;
+        let newCoffee = this.coffeeDetail;
 
-        if (this.coffee.id != null) {
+        if (this.coffeeDetail.id != null) {
             this.coffeeService.update(newCoffee)
                 .then(this.goBack);
         } else {
             this.coffeeService.create(newCoffee)
                 .then(this.goBack);
         }
+    }
+
+    setRating(event) {
+        this.coffeeDetail.rating = event.value;
     }
 
     goBack():void {
