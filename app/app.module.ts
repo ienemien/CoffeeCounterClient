@@ -13,21 +13,22 @@ import { routing } from './app.routing';
 
 
 @NgModule({
-  imports: [ 
-	BrowserModule,
-	FormsModule,
-	HttpModule,
-	routing
-  ],
-	declarations: [ 
-		AppComponent,
-		CoffeeComponent,
-		CoffeeDetailComponent,
-		StarRatingComponent
-	],
-	providers: [
-		CoffeeService
-	],
-  bootstrap: [ AppComponent ]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        routing
+    ],
+    declarations: [
+        AppComponent,
+        CoffeeComponent,
+        CoffeeDetailComponent,
+        StarRatingComponent
+    ],
+    providers: [
+        CoffeeService
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
